@@ -135,7 +135,7 @@ public class BackgroundDexoptJob implements ArtServiceJobInterface {
             throw new IllegalStateException("This job cannot be scheduled");
         }
 
-        start().thenAcceptAsync(result -> {
+        start(jobType).thenAcceptAsync(result -> {
             Map<Integer, DexoptResult> dr = null;
             long durationMs = 0L;
             if (result instanceof CompletedResult r) {
